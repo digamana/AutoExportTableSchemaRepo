@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.4.33205.214
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33027.164
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoExportTableSchema", "AutoExportTableSchema\AutoExportTableSchema.csproj", "{1E9885AC-EC52-4B05-96A9-C1FC287D4229}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoExportTableSchema", "AutoExportTableSchema\AutoExportTableSchema.csproj", "{CD2AB824-8C70-440C-BF7D-55155E3F1B24}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoExportTableSchemaDll", "AutoExportTableSchemaDll\AutoExportTableSchemaDll.csproj", "{112807DD-AE6A-4CFA-9642-B45A77B155B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoExportTableSchemaDll", "AutoExportTableSchemaDll\AutoExportTableSchemaDll.csproj", "{28B6119F-B1A8-43D8-8B66-C7E19837317C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,19 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{1E9885AC-EC52-4B05-96A9-C1FC287D4229}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E9885AC-EC52-4B05-96A9-C1FC287D4229}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E9885AC-EC52-4B05-96A9-C1FC287D4229}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E9885AC-EC52-4B05-96A9-C1FC287D4229}.Release|Any CPU.Build.0 = Release|Any CPU
-		{112807DD-AE6A-4CFA-9642-B45A77B155B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{112807DD-AE6A-4CFA-9642-B45A77B155B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{112807DD-AE6A-4CFA-9642-B45A77B155B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{112807DD-AE6A-4CFA-9642-B45A77B155B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD2AB824-8C70-440C-BF7D-55155E3F1B24}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD2AB824-8C70-440C-BF7D-55155E3F1B24}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD2AB824-8C70-440C-BF7D-55155E3F1B24}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD2AB824-8C70-440C-BF7D-55155E3F1B24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28B6119F-B1A8-43D8-8B66-C7E19837317C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28B6119F-B1A8-43D8-8B66-C7E19837317C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28B6119F-B1A8-43D8-8B66-C7E19837317C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28B6119F-B1A8-43D8-8B66-C7E19837317C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {949855A0-DE4A-4F62-B0A5-9354016E1548}
+		SolutionGuid = {79F5DFDE-8B31-4943-B8AD-566421205996}
 	EndGlobalSection
 EndGlobal
