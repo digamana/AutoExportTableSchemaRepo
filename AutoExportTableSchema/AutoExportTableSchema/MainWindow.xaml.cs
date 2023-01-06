@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AutoExportTableSchema.Domain;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace AutoExportTableSchema
         public MainWindow()
         {
             InitializeComponent();
+            Center center = new Center();
         }
 
         private void DownLoadTemplete(object sender, RoutedEventArgs e)

@@ -94,5 +94,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AutoExportTableSchemaDll\AutoExportTableSchemaDll.csproj">
+      <Project>{112807dd-ae6a-4cfa-9642-b45a77b155b3}</Project>
+      <Name>AutoExportTableSchemaDll</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
