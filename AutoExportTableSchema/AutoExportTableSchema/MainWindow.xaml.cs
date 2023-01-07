@@ -51,6 +51,11 @@ namespace AutoExportTableSchema
             }
             else if (rdoConnectString.IsChecked == true)
             {
+                if (string.IsNullOrEmpty(txtbConnectString.Text))
+                {
+                    MessageBox.Show("請輸入ConnectString");
+                    return;
+                }
                 Center center = new Center();
                 if (!Center.SqlConnectionTest(txtbConnectString.Text))
                 {

@@ -5,17 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoExportTableSchema"
         mc:Ignorable="d"
-        Title="AutoExportTableSchema" Height="301.2" Width="1199.111" ResizeMode="CanMinimize">
+        Title="AutoExportTableSchema" Height="301.2" Width="1199.111" ResizeMode="CanMinimize" Icon="/freeicon.png">
     <Grid Margin="0,0,-16.2,0" Height="220" VerticalAlignment="Top">
-        <Button Content="匯出TableSchema" Margin="1,212,20.2,-36.8" Click="Button_Click_1"/>
-        <TextBox x:Name="txtbFilePath" TextWrapping="Wrap" Margin="174,154,325,30" ToolTip="" IsReadOnly="True"/>
-        <RadioButton x:Name="rdoBasic" Content="基本輸入" Margin="10,23,1072.4,137.2" IsChecked="True"/>
-        <RadioButton x:Name="rdoConnectString" Content="輸入ConnectString" Margin="11,88,1056.4,64.2"/>
-        <RadioButton x:Name="rdoFile" Content="匯入範本" Margin="10,161,1072.4,13.2"/>
-        <Button x:Name="btnDownLoadTemplete" Content="下載範本" Margin="877,154,170,0" Click="Button_Click" Height="36" VerticalAlignment="Top"/>
-        <TextBox x:Name="txtbConnectString" TextWrapping="Wrap" Margin="174,88,325,100"/>
-        <Button x:Name="btnImportTemplete" Content="匯入範本" Margin="1032,154,20.4,30.2" Click="btnImportTemplete_Click"/>
-        <GroupBox x:Name="GroupBasic" Header="" Margin="174,10,21,149">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="287*"/>
+            <ColumnDefinition Width="928*"/>
+        </Grid.ColumnDefinitions>
+        <Button Content="匯出TableSchema" Margin="1,212,20,-37" Click="Button_Click_1" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtbFilePath" TextWrapping="Wrap" Margin="174,154,325,30" ToolTip="" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <RadioButton x:Name="rdoBasic" Content="基本輸入" Margin="10,23,144,137" IsChecked="True"/>
+        <RadioButton x:Name="rdoConnectString" Content="輸入ConnectString" Margin="11,88,128,64"/>
+        <RadioButton x:Name="rdoFile" Content="匯入範本" Margin="10,161,144,13"/>
+        <Button x:Name="btnDownLoadTemplete" Content="下載範本" Margin="590,154,170,0" Click="Button_Click" Height="36" VerticalAlignment="Top" Grid.Column="1"/>
+        <TextBox x:Name="txtbConnectString" TextWrapping="Wrap" Margin="174,88,325,100" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnImportTemplete" Content="匯入範本" Margin="745,154,20,30" Click="btnImportTemplete_Click" Grid.Column="1"/>
+        <GroupBox x:Name="GroupBasic" Header="" Margin="174,10,21,149" Grid.ColumnSpan="2">
             <Grid Margin="-6,-4,-6.4,9.8">
                 <Label Content="伺服器名稱" Margin="0,0,921.2,-0.4" RenderTransformOrigin="1.764,6.859"/>
                 <TextBox x:Name="txtbServeName" Margin="88,-1,744,-14" HorizontalScrollBarVisibility="Auto" AcceptsReturn="True" SpellCheck.IsEnabled="True"/>
