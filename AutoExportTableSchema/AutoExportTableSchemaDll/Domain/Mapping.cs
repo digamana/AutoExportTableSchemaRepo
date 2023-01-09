@@ -18,9 +18,9 @@ namespace AutoExportTableSchemaDll.Domain
         }
         public void Run()
         {
-            IMappingExcelSkill SourceExcel = new MappingExcelSkill(@"C:\Users\User\Downloads\新增資料夾\DemoSource.xlsx");
+            IMappingExcelSkill SourceExcel = new MappingExcelSkill(_strSource);
             var temp=SourceExcel.GetExcelData();
-            IMappingExcelSkill SourceExce2 = new MappingExcelSkill(@"C:\Users\User\Downloads\新增資料夾\DemoTarget.xlsx");
+            IMappingExcelSkill SourceExce2 = new MappingExcelSkill(_strTarget);
             SourceExce2.SetExcelData(temp);
             SourceExce2.Save();
             //IMappingExcelSkill TargetExcel = new MappingExcelSkill();

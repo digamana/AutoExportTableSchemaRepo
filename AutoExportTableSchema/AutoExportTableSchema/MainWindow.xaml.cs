@@ -14,8 +14,6 @@ namespace AutoExportTableSchema
         {
             InitializeComponent();
             Center center = new Center();
-            Mapping mapping = new Mapping("", "");
-            mapping.Run();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -71,7 +69,7 @@ namespace AutoExportTableSchema
             {
                 if (string.IsNullOrEmpty(txtbFilePath.Text) || !txtbFilePath.Text.Contains("xlsx"))
                 {
-                    MessageBox.Show("請輸入xlsm的檔案路徑");
+                    MessageBox.Show("請輸入xlsx的檔案路徑");
                     return;
                 }
                 Center center = new Center();
@@ -101,6 +99,39 @@ namespace AutoExportTableSchema
             {
                 txtbFilePath.Text = openFileDlg.FileName;
             }
+        }
+
+        private void btnSourceFile_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
+            Nullable<bool> result = openFileDlg.ShowDialog();
+            if (result == true) // Test result.
+            {
+                txtbSourceFilePath.Text = openFileDlg.FileName;
+            }
+        }
+
+        private void btnTargetFile_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
+            Nullable<bool> result = openFileDlg.ShowDialog();
+            if (result == true) // Test result.
+            {
+                txtbTargetFilePath.Text = openFileDlg.FileName;
+            }
+        }
+
+        private void btnMapping_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtbTargetFilePath.Text) || string.IsNullOrEmpty(txtbSourceFilePath.Text))
+            {
+                MessageBox.Show("請輸入xlsx的檔案路徑");
+                return;
+            }
+            Mapping mapping = new Mapping(txtbSourceFilePath.Text, txtbTargetFilePath.Text);
+            mapping.Run();
+
+            Center.openFile(txtbTargetFilePath.Text);
         }
     }
 }

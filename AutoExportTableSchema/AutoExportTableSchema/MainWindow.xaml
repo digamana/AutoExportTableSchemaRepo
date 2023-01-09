@@ -5,13 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AutoExportTableSchema"
         mc:Ignorable="d"
-        Title="AutoExportTableSchema" Height="301.2" Width="1199.111" ResizeMode="CanMinimize" Icon="/freeicon.png">
+        Title="AutoExportTableSchema" Height="363" Width="1199.111" ResizeMode="CanMinimize" Icon="/freeicon.png">
     <Grid Margin="0,0,-16.2,0" Height="220" VerticalAlignment="Top">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="287*"/>
             <ColumnDefinition Width="928*"/>
         </Grid.ColumnDefinitions>
-        <Button Content="匯出TableSchema" Margin="1,212,20,-37" Click="Button_Click_1" Grid.ColumnSpan="2"/>
+        <Button Content="匯出TableSchema" Margin="1,280,20,-105" Click="Button_Click_1" Grid.ColumnSpan="2"/>
         <TextBox x:Name="txtbFilePath" TextWrapping="Wrap" Margin="174,154,325,30" ToolTip="" IsReadOnly="True" Grid.ColumnSpan="2"/>
         <RadioButton x:Name="rdoBasic" Content="基本輸入" Margin="10,23,144,137" IsChecked="True"/>
         <RadioButton x:Name="rdoConnectString" Content="輸入ConnectString" Margin="11,88,128,64"/>
@@ -31,5 +31,11 @@
                 <PasswordBox x:Name="txtbPwd" HorizontalAlignment="Left" Height="48" Margin="790,0,0,-15.4" VerticalAlignment="Top" Width="214"/>
             </Grid>
         </GroupBox>
+        <TextBox x:Name="txtbSourceFilePath" TextWrapping="Wrap" Margin="174,220,333,-20" ToolTip="" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Label Content="TableShema&#xD;&#xA;Mapping" Margin="11,223,163,-45" RenderTransformOrigin="1.764,6.859" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Button x:Name="btnSourceFile" Content="選擇來源Excel" Margin="595,220,170,-20" Click="btnSourceFile_Click" Grid.Column="1"/>
+        <TextBox x:Name="txtbTargetFilePath" TextWrapping="Wrap" Margin="174,245,333,-45" ToolTip="" IsReadOnly="True" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnTargetFile" Content="選擇目標Excel" Margin="595,245,170,-45" Click="btnTargetFile_Click" Grid.Column="1"/>
+        <Button x:Name="btnMapping" Content="開始" Margin="758,222,20,-45" Click="btnMapping_Click" Grid.Column="1"/>
     </Grid>
 </Window>

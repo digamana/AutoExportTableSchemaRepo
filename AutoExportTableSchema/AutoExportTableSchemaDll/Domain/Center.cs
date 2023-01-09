@@ -212,6 +212,10 @@ namespace AutoExportTableSchema.Domain
             excel.Dispose();
             Process.Start(p_strPath);
         }
+        public static void openFile(string strFIle)
+        {
+            Process.Start(strFIle);
+        }
 
     }
 }
