@@ -15,5 +15,6 @@ namespace AutoExportTableSchema.Model
         public string MaxLength { get; set; }
         public string IsNull { get; set; }
         public string IsPrimaryKey { get; set; }
+        public string Describe { get; set; }
     }
 }

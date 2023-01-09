@@ -1,4 +1,5 @@
 ﻿using AutoExportTableSchema.Domain;
+using AutoExportTableSchemaDll.Domain;
 using System;
 using System.Windows;
 
@@ -13,6 +14,8 @@ namespace AutoExportTableSchema
         {
             InitializeComponent();
             Center center = new Center();
+            Mapping mapping = new Mapping("", "");
+            mapping.Run();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

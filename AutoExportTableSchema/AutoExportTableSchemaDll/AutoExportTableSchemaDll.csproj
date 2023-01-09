@@ -58,11 +58,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Domain\Center.cs" />
+    <Compile Include="Domain\Mapping.cs" />
     <Compile Include="Excel.cs" />
     <Compile Include="ExcelSkill.cs" />
+    <Compile Include="Export\MappingExcelSkill.cs" />
+    <Compile Include="Export\IMappingExcelSkill.cs" />
     <Compile Include="IExcelSkill.cs" />
     <Compile Include="Model\BasicAttributes.cs" />
     <Compile Include="Model\Limit.cs" />
+    <Compile Include="Model\OutputExcelStruct.cs" />
     <Compile Include="Model\Tempelte.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlConnect\ISqlData.cs" />
