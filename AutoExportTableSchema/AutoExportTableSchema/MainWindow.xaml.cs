@@ -1,6 +1,7 @@
 ﻿using AutoExportTableSchema.Domain;
 using AutoExportTableSchemaDll.Domain;
 using System;
+using System.ComponentModel;
 using System.Windows;
 
 namespace AutoExportTableSchema
@@ -13,14 +14,39 @@ namespace AutoExportTableSchema
         public MainWindow()
         {
             InitializeComponent();
+            LoadConfig();
             Center center = new Center();
         }
+        public void LoadConfig()
+        {
+            txtbServeName.Text = Properties.Settings.Default["ServerName"].ToString();
+            txtbDbName.Text = Properties.Settings.Default["DBName"].ToString();
+            txtbAccount.Text = Properties.Settings.Default["Account"].ToString();
+            txtbPwd.Password = Properties.Settings.Default["Pwd"].ToString();
+            txtbConnectString.Text = Properties.Settings.Default["ConnectString"].ToString();
+            var temp = Properties.Settings.Default["ExistColumnDescription"].ToString();
+            chkDescription.IsEnabled = Convert.ToBoolean(temp);
+
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Center.CreatTempelteExcel();
         }
+ 
 
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Properties.Settings.Default["ServerName"] = txtbServeName.Text;
+            Properties.Settings.Default["DBName"] = txtbDbName.Text;
+            Properties.Settings.Default["Account"] =txtbAccount.Text ;
+            Properties.Settings.Default["Pwd"] = txtbPwd.Password;
+            Properties.Settings.Default["ConnectString"] = txtbConnectString.Text;
+            Properties.Settings.Default["ExistColumnDescription"] = chkDescription.IsEnabled;
+
+            Properties.Settings.Default.Save(); // Saves settings in application configuration file
+        }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
             if (rdoBasic.IsChecked == false && rdoConnectString.IsChecked == false && rdoFile.IsChecked == false)
@@ -47,7 +73,7 @@ namespace AutoExportTableSchema
                     MessageBox.Show("資料庫連線失敗,請確認輸入資訊");
                     return;
                 }
-                center.Run(ConnectString, txtbDbName.Text);
+                center.Run(ConnectString, txtbDbName.Text,(bool)chkDescription.IsChecked);
 
             }
             else if (rdoConnectString.IsChecked == true)
@@ -63,7 +89,7 @@ namespace AutoExportTableSchema
                     MessageBox.Show("資料庫連線失敗,請確認輸入資訊");
                     return;
                 }
-                center.Run(txtbConnectString.Text, "MIDDB");
+                center.Run(txtbConnectString.Text, "MIDDB", (bool)chkDescription.IsChecked);
             }
             else if(rdoFile.IsChecked==true)
             {
@@ -84,7 +110,7 @@ namespace AutoExportTableSchema
                     string ConnectString = $"data source={ServerName};initial catalog={DbName};persist security info=True;user id={AccName};password={Pwd};MultipleActiveResultSets=True;App=EntityFramework providerName = System.Data.SqlClient";
                     if (Center.SqlConnectionTest(ConnectString))
                     {
-                        center.Run(ConnectString, DbName);
+                        center.Run(ConnectString, DbName, (bool)chkDescription.IsChecked);
                     } 
                 }
             }
@@ -133,5 +159,7 @@ namespace AutoExportTableSchema
 
             Center.openFile(txtbTargetFilePath.Text);
         }
+
+         
     }
 }

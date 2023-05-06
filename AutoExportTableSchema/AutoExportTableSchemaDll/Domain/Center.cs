@@ -17,11 +17,11 @@ namespace AutoExportTableSchema.Domain
         public static readonly string Downloads = new Syroot.Windows.IO.KnownFolder(Syroot.Windows.IO.KnownFolderType.Downloads).Path;
         ExcelPackage excel { get; set; }
         ExcelWorksheet workSheet { get; set; }
-        public void Run(string ConnectString, string FileName)
+        public void Run(string ConnectString, string FileName,bool bChkDes)
         {
             excel = new ExcelPackage();
             setExcelTitle();
-            setExcelContext(new SqlData(ConnectString));
+            setExcelContext(new SqlData(ConnectString), bChkDes);
             runFinish(FileName);
         }
         public void setMergeContext(ISqlData sqlData)
@@ -114,14 +114,14 @@ namespace AutoExportTableSchema.Domain
             }
             return lst;
         }
-        public void setExcelContext(ISqlData sqlData)
+        public void setExcelContext(ISqlData sqlData,bool bExistDes)
         {
             int i = 0;
             int j = 0;
             var tempList = sqlData.lstAttributes().Select(c => c.TableName).Distinct().ToList();
             //workSheet.Cells[$"B{min}:Z{max}"].Merge = true;
             int iRange = 0;
-            var temp2222 = sqlData.lstAttributes().Where(c => c.TableName == "ZRFC_MM08").ToList();
+     
             //Excel總行數 =  sqlData.lstAttributes().Count() + Excel標題  +  sqlData.lstAttributes().Select(c => c.TableName).Distinct().Count();
             foreach (var item in tempList)
             {
@@ -152,6 +152,10 @@ namespace AutoExportTableSchema.Domain
                     workSheet.Cells[2 + i, 5].Value = item2.MaxLength;
                     workSheet.Cells[2 + i, 6].Value = item2.IsNull;
                     workSheet.Cells[2 + i, 7].Value = item2.IsPrimaryKey;
+                    if (bExistDes == true)
+                    {
+                        workSheet.Cells[2 + i, 8].Value = item2.ColumnDescription;
+                    }
                     changeBackgroundColor(workSheet, $"A{2 + i}:I{2 + i}", Color.FromArgb(255, 228, 225));
                 }
                 i++;

@@ -17,5 +17,6 @@ namespace AutoExportTableSchema.Model
         public string IsPrimaryKey { get; set; }
         public string Describe { get; set; }
         public string Describe2 { get; set; }
+        public string ColumnDescription { get; set; }
     }
 }
