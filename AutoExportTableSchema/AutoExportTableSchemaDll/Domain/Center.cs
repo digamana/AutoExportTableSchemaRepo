@@ -33,7 +33,7 @@ namespace AutoExportTableSchema.Domain
         }
         public void setExcelTitle()
         {
-
+            workSheet = excel.Workbook.Worksheets.Add("指令碼");
             workSheet = excel.Workbook.Worksheets.Add("總表");
             changeBackgroundColor(workSheet, $"A1:I1", Color.Yellow);
             workSheet.Cells[1, 1].Value = "SchemaName";
@@ -53,6 +53,8 @@ namespace AutoExportTableSchema.Domain
             workSheet.Cells[$"A2"].Style.Font.Bold = true;
             changeBackgroundColor(workSheet, "A2:I2", Color.FromArgb(255, 127, 80));
             workSheet.Row(2).Height = 25;
+
+          
 
         }
         public static bool SqlConnectionTest(string connectionString)
@@ -117,11 +119,9 @@ namespace AutoExportTableSchema.Domain
         public void setExcelContext(ISqlData sqlData,bool bExistDes)
         {
             int i = 0;
-            int j = 0;
             var tempList = sqlData.lstAttributes().Select(c => c.TableName).Distinct().ToList();
             //workSheet.Cells[$"B{min}:Z{max}"].Merge = true;
-            int iRange = 0;
-     
+
             //Excel總行數 =  sqlData.lstAttributes().Count() + Excel標題  +  sqlData.lstAttributes().Select(c => c.TableName).Distinct().Count();
             foreach (var item in tempList)
             {
@@ -183,6 +183,52 @@ namespace AutoExportTableSchema.Domain
             }
             workSheet.Cells[$"I{last + 1}:I{i + 1}"].Merge = true;
             workSheet.Column(9).Width = 30;
+
+
+            workSheet = excel.Workbook.Worksheets["指令碼"];
+            i = 0;
+            foreach (var item in tempList)
+            {
+                workSheet.Cells[$"A{2 + i}:I{2 + i}"].Merge = true;
+                workSheet.Cells[2 + i, 1].Value = item;
+                workSheet.Cells[2 + i, 2].Value = "";
+                workSheet.Cells[2 + i, 3].Value = "";
+                workSheet.Cells[2 + i, 4].Value = "";
+                workSheet.Cells[2 + i, 5].Value = "";
+                workSheet.Cells[2 + i, 6].Value = "";
+                workSheet.Cells[2 + i, 7].Value = "";
+
+                workSheet.Cells[$"A{2 + i}"].Value = workSheet.Cells[$"B{2 + i}"].Value;
+                workSheet.Cells[$"A{2 + i}"].Style.Font.Size = 20;
+                workSheet.Cells[$"A{2 + i}"].Style.Font.Bold = true;
+                workSheet.Cells[$"A{2 + i}:I{2 + i}"].Style.HorizontalAlignment = ExcelHorizontalAlignment.Center;
+                workSheet.Cells[$"A{2 + i}:I{2 + i}"].Style.VerticalAlignment = ExcelVerticalAlignment.Center;
+                changeBackgroundColor(workSheet, $"A{2 + i}:I{2 + i}", Color.FromArgb(255, 127, 80));
+                workSheet.Row(3 + i).Height = 25;
+                var tableName = sqlData.lstAttributes().Where(c => c.TableName == item).ToList();
+                foreach (var item2 in tableName)
+                {
+                    i++;
+                    if (!string.IsNullOrEmpty(item2.ColumnDescription))
+                    {
+                        workSheet.Cells[2 + i, 1].Value = $"EXEC sp_addextendedproperty 'MS_Description', '{item2.ColumnDescription}', 'SCHEMA', '{item2.SchemaName}', 'TABLE', '{item2.TableName}', 'COLUMN', '{item2.ColumnName}';";
+                    }
+                    
+                    //workSheet.Cells[2 + i, 1].Value = item2.SchemaName;
+                    //workSheet.Cells[2 + i, 2].Value = item2.TableName;
+                    //workSheet.Cells[2 + i, 3].Value = item2.ColumnName;
+                    //workSheet.Cells[2 + i, 4].Value = item2.ColumnType;
+                    //workSheet.Cells[2 + i, 5].Value = item2.MaxLength;
+                    //workSheet.Cells[2 + i, 6].Value = item2.IsNull;
+                    //workSheet.Cells[2 + i, 7].Value = item2.IsPrimaryKey;
+                    if (bExistDes == true)
+                    {
+                        workSheet.Cells[2 + i, 8].Value = item2.ColumnDescription;
+                    }
+                    changeBackgroundColor(workSheet, $"A{2 + i}:I{2 + i}", Color.FromArgb(255, 228, 225));
+                }
+                i++;
+            }
         }
         public void changeBackgroundColor(ExcelWorksheet workSheet, string Range, Color color)
         {
