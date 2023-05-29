@@ -35,9 +35,9 @@
         <TextBox x:Name="txtbTargetFilePath" TextWrapping="Wrap" Margin="174,245,333,133" ToolTip="" IsReadOnly="True" Grid.ColumnSpan="2" Height="NaN"/>
         <Button x:Name="btnTargetFile" Content="選擇目標Excel" Margin="595,220,170,133" Click="btnTargetFile_Click" Grid.Column="1" Height="NaN"/>
         <Button x:Name="btnMapping" Content="開始" Margin="763,220,20,133" Click="btnMapping_Click" Grid.Column="1" Height="NaN" Width="NaN"/>
-        <TextBox x:Name="txtbTargetFilePath_Copy" TextWrapping="Wrap" Margin="174,293,333,87" ToolTip="" IsReadOnly="True" Grid.ColumnSpan="2" Height="NaN"/>
-        <Button x:Name="btnTargetFile_Copy" Content="選擇目標Excel" Margin="595,293,169,87" Click="btnTargetFile_Click" Grid.Column="1" Height="NaN"/>
-        <Button x:Name="btnMapping_Copy" Content="開始" Margin="763,293,15,87" Click="btnMapping_Click" Grid.Column="1" Height="NaN"/>
+        <TextBox x:Name="txtbTargetFilePath_CreatCommand" TextWrapping="Wrap" Margin="174,293,333,87" ToolTip="" IsReadOnly="True" Grid.ColumnSpan="2" Height="NaN"/>
+        <Button x:Name="btnTargetFile_CreatCommand" Content="選擇目標Excel" Margin="595,293,169,87" Click="btnTargetFile_CreatCommand_Click" Grid.Column="1" Height="NaN"/>
+        <Button x:Name="btnMapping_CreatCommand" Content="開始" Margin="763,293,15,87" Click="btnMapping_CreatCommand_Click" Grid.Column="1" Height="NaN"/>
         <Label Content="Export Describe &#xD;&#xA;Script" HorizontalAlignment="Left" Height="55" Margin="10,279,0,0" VerticalAlignment="Top" Width="101"/>
 
     </Grid>

@@ -2,6 +2,8 @@
 using AutoExportTableSchemaDll.Domain;
 using System;
 using System.ComponentModel;
+using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows;
 
 namespace AutoExportTableSchema
@@ -160,6 +162,32 @@ namespace AutoExportTableSchema
             Center.openFile(txtbTargetFilePath.Text);
         }
 
-         
+        private void btnTargetFile_CreatCommand_Click(object sender, RoutedEventArgs e)
+        {
+            Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
+            Nullable<bool> result = openFileDlg.ShowDialog();
+            if (result == true) // Test result.
+            {
+                txtbTargetFilePath_CreatCommand.Text = openFileDlg.FileName;
+            }
+        }
+
+        private void btnMapping_CreatCommand_Click(object sender, RoutedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(txtbTargetFilePath_CreatCommand.Text) || string.IsNullOrEmpty(txtbTargetFilePath_CreatCommand.Text))
+            {
+                MessageBox.Show("請輸入xlsx的檔案路徑");
+                return;
+            }
+            /**
+             * 下面開始編寫讀取Excel裡面的描述欄位,並組成SQL寫入欄位指令的方法
+             */
+            Reading reading = new Reading(txtbTargetFilePath_CreatCommand.Text);
+            reading.Run();
+            //Mapping mapping = new Mapping(txtbSourceFilePath.Text, txtbTargetFilePath.Text);
+            //mapping.Run();
+
+            //Center.openFile(txtbTargetFilePath.Text);
+        }
     }
 }

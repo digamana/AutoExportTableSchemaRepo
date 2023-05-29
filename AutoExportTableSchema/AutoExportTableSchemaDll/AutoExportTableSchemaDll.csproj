@@ -59,6 +59,7 @@
   <ItemGroup>
     <Compile Include="Domain\Center.cs" />
     <Compile Include="Domain\Mapping.cs" />
+    <Compile Include="Domain\Reading.cs" />
     <Compile Include="Excel.cs" />
     <Compile Include="ExcelSkill.cs" />
     <Compile Include="Export\MappingExcelSkill.cs" />
